@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">ASP.NET Web API Help Page</h1>
+</div>
+<div class="text-left mb-3">
+    <h3 class="h3 font-weight-light">Documentations</h3>
+    <h3 class="h3 font-weight-light">Rates</h3>
+</div>
+<table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a class="navbar-nav nav-link text-dark" asp-area="" asp-page="/Api_Get_Latest">GET api/rates/latest/{format}/</a></td>
+                <td>Get the latest exchange currency rates in XML or JSON format</td>
+            </tr>
+            <tr>
+            <tr>
+                <td><a class="navbar-nav nav-link text-dark" asp-area="" asp-page="/Api_Get_History">GET api/rates/history/{format}/</a></td>
+                <td>Get old exchange currency rates for a specific time span in XML or JSON format</td>
+            </tr>
+            <tr>
+                <td><a class="navbar-nav nav-link text-dark" asp-area="" asp-page="/Api_Get_By_Date">GET api/rates/{date}/{format}/</a></td>
+                <td>Get the exchange currency rates of a specific date in XML or JSON format</td>
+            </tr>
+        </tbody>
+
+</table>
+

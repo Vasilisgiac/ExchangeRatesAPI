@@ -1,0 +1,222 @@
+﻿@page
+@model Api_Get_HistoryModel
+@{
+    ViewData["Title"] = "Api Get Latest";
+}
+
+<div class="text-left mb-5">
+    <h1 class="display-4">GET api/rates/history/{format}</h1>
+    <p>Get old exchange currency rates for a specific time span in XML or JSON format</p>
+</div>
+<div class="text-left mb-5">
+    <h2 class="h2 font-weight-light mb-3">Request Information</h2>
+    <div class="text-left mb-3">
+        <h3 class="h3 font-weight-light">URI Parameters</h3>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="w-25">Name</th>
+                    <th class="w-25">Description</th>
+                    <th class="w-25">Type</th>
+                    <th class="w-25">Additional information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>format</td>
+                    <td>The format of the response</td>
+                    <td>string</td>
+                    <td>Required. Values: xml, json. Default value: json.</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="text-left mb-3">
+        <h3 class="h3 font-weight-light">Query Parameters</h3>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="w-25">Name</th>
+                    <th class="w-25">Description</th>
+                    <th class="w-25">Type</th>
+                    <th class="w-25">Additional information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>basecur</td>
+                    <td>The base currency of exchange rates</td>
+                    <td>string</td>
+                    <td>Optional. Values: Currency acronyms e.g. EUR, USD, GBP...<br /> Default value: EUR. <br /> Only one value can be setted to the parameter.</td>
+                </tr>
+                <tr>
+                    <td>symbols</td>
+                    <td>Specific curencies to get exchange rates for them only</td>
+                    <td>string</td>
+                    <td>Optional. Values: Currency acronyms e.g. EUR, USD, GBP...<br />Multiple values can be setted to the parameter.</td>
+                </tr>
+                <tr>
+                    <td>startdate</td>
+                    <td>Starting date for the time span of exchange rates</td>
+                    <td>string</td>
+                    <td>Required. Matching date format 'yyyy-MM-dd'.<br/> Starting date should be less than ending date.</td>
+                </tr>
+                <tr>
+                    <td>enddate</td>
+                    <td>Ending date for the time span of exchange rates</td>
+                    <td>string</td>
+                    <td>Required. Matching date format 'yyyy-MM-dd'.<br /> Ending date should be greater than starting date.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-left mb-3">
+        <h3 class="h3 font-weight-light">Body Parameters</h3>
+        <p>None.</p>
+    </div>
+</div>
+<div class="text-left mb-5">
+    <h2 class="h2 font-weight-light mb-3">Response Information</h2>
+    <div class="text-left mb-3">
+        <h3 class="h3 font-weight-light">Resource Description</h3>
+        <p>A collection of old exchange rates</p>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="w-25">Name</th>
+                    <th class="w-25">Description</th>
+                    <th class="w-25">Type</th>
+                    <th class="w-25">Additional information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>base</td>
+                    <td>The base currency of the exchange rates</td>
+                    <td>string</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>Date of the exchange rates</td>
+                    <td>string</td>
+                    <td>Matching the date format 'yyyy-MM-dd'.</td>
+                </tr>
+                <tr>
+                    <td>currencies</td>
+                    <td>Collection of the exchange rates</td>
+                    <td>IEnumerable Collection </td>
+                    <td>The collection contains the name and the rate for each currency.</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>Name of the currency</td>
+                    <td>string</td>
+                    <td>In the currencies collection.</td>
+                </tr>
+                <tr>
+                    <td>rate</td>
+                    <td>Rate of the currency</td>
+                    <td>decimal</td>
+                    <td>In the currencies collection. Matching the decimal format 0.000#######.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-left mb-3">
+        <h3 class="h3 font-weight-light">Response formats</h3>
+        <div class="row mb-3">
+            <div class="popover-header btn-primary col-6 col-md-3">application/json, text/json</div>
+            <div class="border-top border-primary col-12">
+                Sample:
+                <pre>
+                [{
+                  "base":"EUR",
+                  "time":"2020-10-05",
+                  "currencies":[{
+                                 "name":"USD",
+                                 "rate":1.1795
+                                },
+                                {
+                                 "name":"JPY",
+                                 "rate":124.95
+                                },
+                                {"name":"BGN",
+                                 "rate":1.9558
+                                }]
+                 },
+                 {
+                  "base":"EUR",
+                  "time":"2020-10-09",
+                  "currencies":[{
+                                 "name":"USD",
+                                 "rate":1.1795
+                                },
+                                {
+                                 "name":"JPY",
+                                 "rate":124.95
+                                },
+                                {
+                                 "name":"BGN",
+                                 "rate":1.9558
+                               }]
+                }]
+            </pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="popover-header btn-primary col-6 col-md-3">application/xml, text/xml</div>
+            <div class="border-top border-primary col-12">
+                Sample:
+                <xmp>
+                    <ArrayOfRates xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
+                                  xmlns="http://schemas.datacontract.org/2004/07/ExchangeRates.Models">
+                        <Rates>
+                            <Base>EUR</Base>
+                            <Currencies>
+                                <Currency>
+                                    <Name>USD</Name>
+                                    <Rate>1.1795</Rate>
+                                </Currency>
+                                <Currency>
+                                    <Name>JPY</Name>
+                                    <Rate>124.95</Rate>
+                                </Currency>
+                                <Currency>
+                                    <Name>BGN</Name>
+                                    <Rate>1.9558</Rate>
+                                </Currency>
+                            </Currencies>
+                            <Time>2020-10-05</Time>
+                        </Rates>
+                        <Rates>
+                            <Base>EUR</Base>
+                            <Currencies>
+                                <Currency>
+                                    <Name>USD</Name>
+                                    <Rate>1.1795</Rate>
+                                </Currency>
+                                <Currency>
+                                    <Name>JPY</Name>
+                                    <Rate>124.95</Rate>
+                                </Currency>
+                                <Currency>
+                                    <Name>BGN</Name>
+                                    <Rate>1.9558</Rate>
+                                </Currency>
+                            </Currencies>
+                            <Time>2020-10-09</Time>
+                        </Rates>
+
+                    </ArrayOfRates>
+                </xmp>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
