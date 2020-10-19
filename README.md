@@ -1,4 +1,4 @@
-ExchangeRates is an API for current and old foreign exchange rates
+ExchangeCurrencyRates is an API for current and old foreign exchange rates
 published by the European Central Bank 
 (https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html)
 The API is built on ASP.NET Core (v3.1) with Razor pages and controllers.
