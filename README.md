@@ -1,4 +1,4 @@
-ExchangeCurrencyRates is an API for current and old foreign exchange rates
+ExchangeRates is an API for current and old foreign exchange rates
 published by the European Central Bank 
 (https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html)
 The API is built on ASP.NET Core (v3.1) with Razor pages and controllers.
@@ -27,4 +27,4 @@ GET /history?startdate=2008-01-01&enddate=2020-09-01&symbols=ILS,JPY
 Get historical rates against a different currency.
 GET /history?startdate=2008-01-01&enddate=2020-09-01&base=USD
 
-Copyrights 2020 ExchangeCurrencyRates. The API is only for personal usage.
+Copyrights 2020 ExchangeRates. The API is only for personal usage.
