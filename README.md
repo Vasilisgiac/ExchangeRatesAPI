@@ -27,4 +27,4 @@ GET /history?startdate=2008-01-01&enddate=2020-09-01&symbols=ILS,JPY
 Get historical rates against a different currency.
 GET /history?startdate=2008-01-01&enddate=2020-09-01&base=USD
 
-Copyrights 2020 ExchangeRates. The API is only for personal usage.
+Copyrights 2020 ExchangeCurrencyRates. The API is only for personal usage.
