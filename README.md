@@ -6,25 +6,25 @@ Hosted for limited time at Azure: https://exchangecurrencyratesapi.azurewebsites
 
 Usage:
 Get the latest foreign exchange rates.
-GET /latest
+GET /api/rates/latest
 
 Get historical rates from 1999 until today.
-GET /2005-05-25
+GET /api/rates/2005-05-25
 
 Default base currency is Euro. Base curency can be changed by setting the 'basecur' parameter in the request.
-GET /latest?base=USD
+GET /api/rates/latest?base=USD
 
 Get exchange rates for specific currencies by setting the 'symbols' parameter.
-GET /latest?symbols=USD,GBP
+GET api/rates/latest?symbols=USD,GBP
 
 Rates history
 Get historical rates for a timespan.
-GET /history?startdate=2008-01-01&enddate=2020-09-01
+GET api/rates/history?startdate=2008-01-01&enddate=2020-09-01
 
 Get historical rates for specific currencies by setting the 'symbols' parameter.
-GET /history?startdate=2008-01-01&enddate=2020-09-01&symbols=ILS,JPY
+GET api/rates/history?startdate=2008-01-01&enddate=2020-09-01&symbols=ILS,JPY
 
 Get historical rates against a different currency.
-GET /history?startdate=2008-01-01&enddate=2020-09-01&base=USD
+GET api/rates/history?startdate=2008-01-01&enddate=2020-09-01&base=USD
 
 Copyrights 2020 ExchangeRates. The API is only for personal usage.
